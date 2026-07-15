@@ -144,6 +144,10 @@
     border:none;
     display:block;
   }
+  .doc-frame-wrap iframe.kpi-frame{
+    height:300px;
+    pointer-events:none;
+  }
   .doc-actions{ text-align:center; margin-top:18px; }
 
   /* BUTTONS */
@@ -489,6 +493,15 @@
         <div class="doc-actions" style="margin-top:16px;">
           <button class="btn" onclick="goTo('sel-sop')">Go to SOP</button>
         </div>
+      </div>
+    </section>
+
+    <!-- KPI TRACKING -->
+    <section class="section notice">
+      <h2>Radar KPI Tracking</h2>
+      <p class="notice-sub">Live offshore team performance snapshot</p>
+      <div class="doc-frame-wrap">
+        <iframe class="kpi-frame" src="https://docs.google.com/spreadsheets/d/1UHm0si8zoa2T-PkUE0yjKzIp25ZN7SEnSd0Old4Za30/edit?usp=sharing&rm=minimal&gid=0" title="Radar KPI Tracking Sheet Preview"></iframe>
       </div>
     </section>
 
