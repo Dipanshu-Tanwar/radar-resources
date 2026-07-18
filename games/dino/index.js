@@ -804,6 +804,7 @@ if (this.distanceRan > this.highestScore) {
     this.distanceMeter.setHighScore(this.highestScore);
 
 }
+console.log("Game Over! Score:", Math.ceil(this.distanceRan));
 
 // ==========================================
 // Submit Score to Leaderboard
