@@ -828,7 +828,7 @@ fetch("https://script.google.com/macros/s/AKfycbwL5ZhBdNaJ5LD-GX1OXvQ4JaGm9wuQoC
 .then(data => console.log("Leaderboard Updated", data))
 .catch(error => console.error(error));
 
-}
+},
 
         stop: function () {
             this.playing = false;
