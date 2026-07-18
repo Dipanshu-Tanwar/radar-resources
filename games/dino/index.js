@@ -797,14 +797,36 @@
             }
 
             // Update the high score.
-            if (this.distanceRan > this.highestScore) {
-                this.highestScore = Math.ceil(this.distanceRan);
-                this.distanceMeter.setHighScore(this.highestScore);
-            }
+if (this.distanceRan > this.highestScore) {
 
-            // Reset the time clock.
-            this.time = getTimeStamp();
-        },
+    this.highestScore = Math.ceil(this.distanceRan);
+
+    this.distanceMeter.setHighScore(this.highestScore);
+
+}
+
+// ==========================================
+// Submit Score to Leaderboard
+// ==========================================
+
+const playerName = localStorage.getItem("playerName") || "Anonymous";
+
+fetch("https://script.google.com/macros/s/AKfycbwL5ZhBdNaJ5LD-GX1OXvQ4JaGm9wuQoCnczD0OYL1utj6dufwszi7yrdqw1rNayvYeew/exec", {
+
+    method: "POST",
+
+    body: JSON.stringify({
+
+        name: playerName,
+
+        score: Math.ceil(this.distanceRan)
+
+    })
+
+})
+.then(response => response.json())
+.then(data => console.log("Leaderboard Updated", data))
+.catch(error => console.error(error));,
 
         stop: function () {
             this.playing = false;
