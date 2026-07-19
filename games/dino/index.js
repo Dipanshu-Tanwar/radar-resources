@@ -573,9 +573,6 @@
                     this.gameOver();
                 }
 
-                this.currentScore = this.distanceMeter.getActualDistance(
-    Math.ceil(this.distanceRan)
-);
 
 var playAchievementSound = this.distanceMeter.update(
     deltaTime,
@@ -810,7 +807,8 @@ if (this.distanceRan > this.highestScore) {
     this.distanceMeter.setHighScore(this.highestScore);
 
 }
-submitScore(this.currentScore);
+const finalScore = parseInt(this.distanceMeter.digits.join(""), 10) || 0;
+submitScore(finalScore);
 
 // ==========================================
 // Submit Score to Leaderboard
