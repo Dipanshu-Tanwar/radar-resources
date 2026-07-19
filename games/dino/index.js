@@ -812,6 +812,45 @@ console.log("distanceRan:", this.distanceRan);
 console.log("finalScore:", finalScore);
 
 submitScore(finalScore);
+// =========================
+// PLAYER NAME SETUP
+// =========================
+
+window.addEventListener("load", function(){
+
+    const modal = document.getElementById("nameModal");
+    const input = document.getElementById("playerNameInput");
+    const button = document.getElementById("savePlayerBtn");
+
+    const savedName = localStorage.getItem("playerName");
+
+    if(savedName){
+        modal.classList.add("hide");
+    }
+
+    button.addEventListener("click",function(){
+
+        const name = input.value.trim();
+
+        if(name===""){
+            alert("Please enter your name.");
+            return;
+        }
+
+        localStorage.setItem("playerName",name);
+
+        modal.classList.add("hide");
+
+    });
+
+});
+input.addEventListener("keypress", function(e){
+
+    if(e.key==="Enter"){
+        button.click();
+    }
+
+});
 
 // ==========================================
 // Submit Score to Leaderboard
