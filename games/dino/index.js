@@ -801,16 +801,16 @@ var playAchievementSound = this.distanceMeter.update(
 
             // Update the high score.
 if (this.distanceRan > this.highestScore) {
-
     this.highestScore = Math.ceil(this.distanceRan);
-
     this.distanceMeter.setHighScore(this.highestScore);
-
 }
-const finalScore = parseInt(this.distanceMeter.digits.join(""), 10) || 0;
+
+// Calculate score directly from distanceRan
+const finalScore = this.distanceMeter.getActualDistance(this.distanceRan);
+
 console.log("distanceRan:", this.distanceRan);
-console.log("digits:", this.distanceMeter.digits);
 console.log("finalScore:", finalScore);
+
 submitScore(finalScore);
 
 // ==========================================
