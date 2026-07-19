@@ -573,8 +573,14 @@
                     this.gameOver();
                 }
 
-                var playAchievementSound = this.distanceMeter.update(deltaTime,
-                    Math.ceil(this.distanceRan));
+                this.currentScore = this.distanceMeter.getActualDistance(
+    Math.ceil(this.distanceRan)
+);
+
+var playAchievementSound = this.distanceMeter.update(
+    deltaTime,
+    Math.ceil(this.distanceRan)
+);
 
                 if (playAchievementSound) {
                     this.playSound(this.soundFx.SCORE);
@@ -804,9 +810,7 @@ if (this.distanceRan > this.highestScore) {
     this.distanceMeter.setHighScore(this.highestScore);
 
 }
-const finalScore = parseInt(this.distanceMeter.digits.join(""));
-
-submitScore(finalScore);
+submitScore(this.currentScore);
 
 // ==========================================
 // Submit Score to Leaderboard
