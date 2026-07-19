@@ -804,7 +804,11 @@ if (this.distanceRan > this.highestScore) {
     this.distanceMeter.setHighScore(this.highestScore);
 
 }
-console.log("Game Over! Score:", Math.ceil(this.distanceRan));
+const finalScore = this.distanceMeter.getActualDistance(
+    Math.ceil(this.distanceRan)
+);
+
+submitScore(finalScore);
 
 // ==========================================
 // Submit Score to Leaderboard
@@ -2775,3 +2779,29 @@ function onDocumentLoad() {
 }
 
 document.addEventListener('DOMContentLoaded', onDocumentLoad);
+function submitScore(score){
+
+    const playerName = localStorage.getItem("playerName") || "Anonymous";
+
+    fetch("https://script.google.com/macros/s/AKfycbwL5ZhBdNaJ5LD-GX1OXvQ4JaGm9wuQoCnczD0OYL1utj6dufwszi7yrdqw1rNayvYeew/exec",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+
+            name:playerName,
+
+            score:score
+
+        })
+
+    })
+    .then(response=>response.text())
+    .then(data=>console.log("Leaderboard Updated"))
+    .catch(error=>console.log(error));
+
+}
