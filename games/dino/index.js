@@ -808,6 +808,9 @@ if (this.distanceRan > this.highestScore) {
 
 }
 const finalScore = parseInt(this.distanceMeter.digits.join(""), 10) || 0;
+console.log("distanceRan:", this.distanceRan);
+console.log("digits:", this.distanceMeter.digits);
+console.log("finalScore:", finalScore);
 submitScore(finalScore);
 
 // ==========================================
