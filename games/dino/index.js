@@ -804,9 +804,7 @@ if (this.distanceRan > this.highestScore) {
     this.distanceMeter.setHighScore(this.highestScore);
 
 }
-const finalScore = this.distanceMeter.getActualDistance(
-    Math.ceil(this.distanceRan)
-);
+const finalScore = parseInt(this.distanceMeter.digits.join(""));
 
 submitScore(finalScore);
 
