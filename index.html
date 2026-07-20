@@ -464,13 +464,8 @@
       </div>
     </section>
 
-    <!-- ENGINEERING LICENSE -->
-    <section class="section">
-      <div class="coming-soon">
-        <h2>Engineering License Verification Sites</h2>
-        <span>Coming Soon</span>
-      </div>
-    </section>
+        <!-- ENGINEERING LICENSE -->
+    <section class="section"><div class="panel"><div class="panel-head" id="head-engineering" data-open="true"><h2>Engineering License Verification Sites</h2><button class="btn ghost small" onclick="togglePanel('engineering')"><span id="label-engineering">Hide</span><span class="toggle-icon">▾</span></button></div><div class="panel-body" id="body-engineering"><div class="sub-panel"><div class="sub-panel-head" id="head-engus" data-open="true"><h3>United States State Engineering Board Sites</h3><button class="btn ghost small" onclick="toggleSub('engus')"><span id="label-engus">Hide</span><span class="toggle-icon">▾</span></button></div><div class="sub-panel-body" id="body-engus"><div class="lookup-row"><div><label for="sel-eng-sticky">Sticky States</label><select id="sel-eng-sticky"></select></div><button class="btn small" onclick="goTo('sel-eng-sticky')">Go to Site</button></div><div class="lookup-row"><div><label for="sel-eng-nonsticky">Non-Sticky States</label><select id="sel-eng-nonsticky"></select></div><button class="btn small" onclick="goTo('sel-eng-nonsticky')">Go to Site</button></div></div></div></div></div></section>
 
     <!-- CERTIFICATE VERIFICATION -->
     <section class="section">
@@ -605,7 +600,9 @@
     "Work History":"https://docs.google.com/document/d/16WISq4zScvvoUJVs1sQyziOJkSMP5O9j8OvtzSf8WWM/edit?tab=t.0"
   };
 
-  function fillSelect(id, dataObj, placeholder){
+  const engineerStickyStates={"Arizona":"https://btr.az.gov/public/registered-professional-search"};
+const engineerNonStickyStates={"Alabama":"https://bels.learningbuilder.com/Search/Public/MemberRole/Verification1"};
+function fillSelect(id, dataObj, placeholder){
     const sel = document.getElementById(id);
     const placeholderOpt = document.createElement('option');
     placeholderOpt.value = '';
@@ -625,6 +622,8 @@
   fillSelect('sel-nonsticky', nonStickyStates, 'Choose a Non-Sticky State');
   fillSelect('sel-canada', canadaProvinces, 'Choose a Province');
   fillSelect('sel-sop', sops, 'Choose an SOP Topic');
+fillSelect('sel-eng-sticky',engineerStickyStates,'Choose a Sticky State');
+fillSelect('sel-eng-nonsticky',engineerNonStickyStates,'Choose a Non-Sticky State');
 
   function goTo(selectId){
     const sel = document.getElementById(selectId);
